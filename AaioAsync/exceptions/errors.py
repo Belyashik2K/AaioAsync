@@ -1,0 +1,2 @@
+class AaioBadRequest(Exception):
+    pass
