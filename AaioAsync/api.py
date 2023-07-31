@@ -56,7 +56,7 @@ class AaioAsync(RequestsClient):
         :param us_key: Parameter that you want to get in the notification"""
 
         if not self.__secretkey or not self._shop:
-            raise Exception('Не указан SecretKey или ShopID.')
+            raise Exception('Не указан SecretKey или ShopID')
 
         params = {
             'merchant_id': self._shop,
