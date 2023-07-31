@@ -60,6 +60,7 @@ ID >>>  HelloAaio
       long_description_content_type='text/markdown',
 
       description='Fully async python wrapper for Aaio.io API',
+      url='https://github.com/Belyashik2K/AaioAsync',
       packages=['AaioAsync', 'AaioAsync/exceptions', 'AaioAsync/models'],
       install_requires=['certifi', 'aiohttp', 'pydantic'],
       zip_safe=False)
