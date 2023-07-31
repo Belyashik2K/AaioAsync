@@ -49,7 +49,7 @@ class AaioAsync(RequestsClient):
         :param order_id: Order number, which unique in your system, up to 16 characters, without spaces (aA-zZ, 0-9, :, -, _, [, ] , |)
         :param currency: Currency. Default to 'RUB' (RUB, UAH, EUR, USD)
         :param method: Payment Aaio system code name
-        :param desc: Order description. Not working on Aaio side xD
+        :param desc: Order description
         :param email: Buyer mail
         :param lang: Interface language. Default to 'ru' (ru, en)
         :param referal: Referral code
