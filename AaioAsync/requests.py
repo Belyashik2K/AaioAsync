@@ -10,8 +10,6 @@ from .exceptions import AaioBadRequest
 class RequestsClient:
 
     def __init__(self) -> None:
-
-        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
         self._loop = asyncio.get_event_loop() 
         self._session: Optional[ClientSession] = None
 
