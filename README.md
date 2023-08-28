@@ -17,7 +17,7 @@ async def main():
 
     print('Доступно >>> ', balance.balance)
     print('В холде >>> ', balance.hold)
-    print('Реферальный >>> ', balance.referal)
+    print('Реферальный >>> ', balance.referral)
 
     info = await aaio.getorderinfo('HelloAaio')
 

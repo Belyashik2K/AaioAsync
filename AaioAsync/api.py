@@ -27,6 +27,13 @@ class AaioAsync(RequestsClient):
         self.__apikey = apikey
         self._shop = shopid
         self.__secretkey = secretkey
+
+        self.headers = {
+            'Accept': 'application/json',
+            'X-Api-Key': self.__apikey
+        }
+
+        self.method = 'POST'
     
     async def generatepaymenturl(
         self,
@@ -94,12 +101,7 @@ class AaioAsync(RequestsClient):
 
         url = f'{self.API_HOST}/api/balance'
 
-        headers = {
-            'Accept': 'application/json',
-            'X-Api-Key': self.__apikey
-        }
-        
-        response = await self._request("POST", url, headers=headers)
+        response = await self._request(self.method, url, headers=self.headers)
 
         return Balance(**response)
 
@@ -127,12 +129,7 @@ class AaioAsync(RequestsClient):
             if value is None:
                 del params[key]
 
-        headers = {
-            'Accept': 'application/json',
-            'X-Api-Key': self.__apikey
-        }
-
-        response = await self._request("POST", url, data=params, headers=headers)
+        response = await self._request(self.method, url, data=params, headers=self.headers)
 
         return Order(**response)
     
@@ -152,12 +149,7 @@ class AaioAsync(RequestsClient):
 
         url = f'{self.API_HOST}/api/methods-payoff'
 
-        headers = {
-            'Accept': 'application/json',
-            'X-Api-Key': self.__apikey
-        }
-
-        response = await self._request("POST", url, headers=headers)
+        response = await self._request(self.method, url, headers=self.headers)
 
         if method is not None:
             return WithdrawalMethodInfo(**response['list'][method])
@@ -179,16 +171,11 @@ class AaioAsync(RequestsClient):
 
         url = f'{self.API_HOST}/api/methods-pay'
 
-        headers = {
-            'Accept': 'application/json',
-            'X-Api-Key': self.__apikey
-        }
-
         params = {
             'merchant_id': self._shop
         }
 
-        response = await self._request("POST", url, data=params, headers=headers)
+        response = await self._request(self.method, url, data=params, headers=self.headers)
 
         if method is not None:
             return OrderMethodInfo.model_validate(response['list'][method])
@@ -210,12 +197,7 @@ class AaioAsync(RequestsClient):
             'my_id': my_id
         }
 
-        headers = {
-            'Accept': 'application/json',
-            'X-Api-Key': self.__apikey
-        }
-
-        response = await self._request("POST", url, data=params, headers=headers)
+        response = await self._request(self.method, url, data=params, headers=self.headers)
 
         return WithdrawalInfo(**response)
     
@@ -247,11 +229,6 @@ class AaioAsync(RequestsClient):
             'commission_type': commission_type,
         }
 
-        headers = {
-            'Accept': 'application/json',
-            'X-Api-Key': self.__apikey
-        }
-
-        response = await self._request("POST", url, data=params, headers=headers)
+        response = await self._request(self.method, url, data=params, headers=self.headers)
 
         return CreateWithdrawal(**response)

@@ -1,6 +1,6 @@
 from setuptools import setup
 
-version = '0.1.5'
+version = '0.1.6'
 
 setup(name='AaioAsync',
       version=version,
@@ -29,7 +29,7 @@ async def main():
 
     print('Доступно >>> ', balance.balance)
     print('В холде >>> ', balance.hold)
-    print('Реферальный >>> ', balance.referal)
+    print('Реферальный >>> ', balance.referral)
 
     info = await aaio.getorderinfo('HelloAaio')
 

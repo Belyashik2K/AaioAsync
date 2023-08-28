@@ -10,7 +10,6 @@ from .exceptions import AaioBadRequest
 class RequestsClient:
 
     def __init__(self) -> None:
-        self._loop = asyncio.get_event_loop() 
         self._session: Optional[ClientSession] = None
 
     def _getsession(self):
@@ -33,7 +32,7 @@ class RequestsClient:
         session = self._getsession()
 
         async with session.request(method, url, **kwargs) as response:
-            response = await response.json(content_type="application/json")
+            response = await response.json()
 
         await self._session.close()
 
@@ -44,5 +43,3 @@ class RequestsClient:
         if response['type'] == 'error':
             raise AaioBadRequest(response['message'])
         return response
-        
-        
