@@ -13,7 +13,7 @@ class Order(BaseModel):
     profit: float = None
     commission: float = None
     commission_client: float = None
-    commission_type: str
+    commission_type: str = None
     email: str = None
     status: str
     date: str
