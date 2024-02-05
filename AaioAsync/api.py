@@ -9,7 +9,7 @@ from .models.withdrawal import CreateWithdrawal, WithdrawalInfo, WithdrawalMetho
 
 class AaioAsync(RequestsClient):
     
-    API_HOST = "https://aaio.io"
+    API_HOST = "https://aaio.so"
 
     def __init__(
             self,
