@@ -30,6 +30,6 @@ class OrderMethodCurrencies(BaseModel):
 class OrderMethodInfo(BaseModel):
     min: OrderMethodCurrencies
     max: OrderMethodCurrencies
-    commission_percent: float
+    commission_percent: str
 
 
